@@ -56,13 +56,16 @@ Now we will start with our Jobs in Jenkins :
 
   * Job1 :
   Whenever Developer pushes something new in Github, Job1 coppies the code from Github to a directory inside the Jenkins server  container
-  ![a]()
-  ![b]()
-  ![c]()
+  ![a](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_1.png?raw=true)
+  ![b](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_2.png?raw=true)
+  ![c](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_3.png?raw=true)
   
   * Job2 :
   Successful build of Job1 will trigger Job2 and it will launch the recpective container for the code of the developer.
   Here I have taken example of webpages so I have used apache webserver.
   
-  ![d]()
-  ![e]()
+  ![d](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_1.png?raw=true)
+  ![e](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_2.png?raw=true)
+  
+  * Job3 :
+  
