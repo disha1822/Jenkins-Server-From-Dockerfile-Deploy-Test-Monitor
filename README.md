@@ -24,16 +24,33 @@ Here we have integrated :
 
 # Project Description :
 
+## Jenkins Server from Dockerfile:
+
 I have used Red Hat 8 as my base OS and made a separate directory for this project
 ` mkdir /task2`
 inside it created one Dockerfile for Jenkins server ` vim Dockerfile` :
 ![dockerfile](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/dockerfile.png?raw=true)
-then to build the **docker image** from it run the command `docker build -t jenkins:v1 .`. It will build the image for Jenkins from the Dockerfile in the current directory and after an successful build we will get outout like this:
+
+Then to build the **docker image** from it run the command `docker build -t jenkins:v1 .`. 
+It will build the image for Jenkins from the Dockerfile in the current directory and after an successful build we will get outout like this:
+
 ![build](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/build.png?raw=true)
-Now we can check the Jenkins image by ` docker images | grep jenkins` the we can use this image to launch our Jenkins server :
-` docker run  -it --privileged -v /:/host -p 1234:8080 --name jkserver jenkins:v1` 
+
+Now we can check the Jenkins image by ` docker images | grep jenkins` 
+Then we can use this image to launch our Jenkins server :
+``` docker run  -it --privileged
+-v /:/host -p 1234:8080 
+--name jkserver jenkins:v1
+```
 `--privileged` is used to give special access to run docker commands in host OS through jenkins server.
+
 `-v /:/host` mounting is done for this reason only.
+
 `-p 1234:8080` by exposing port we can access Jenkins server from http://localhost:1234
+
 For first time Jenkins will ask an Initial Admin Password which we can find in the running jenkins container :
 ![passwd](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/jkstart.png?raw=true)
+
+Now we will do the required settings and install suggested plugins in Jenkins.
+
+## Jobs in Jenkins
