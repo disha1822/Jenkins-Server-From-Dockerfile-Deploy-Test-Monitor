@@ -24,7 +24,7 @@ Here we have integrated :
 
 # Project Description :
 
-## Jenkins Server from Dockerfile:
+## 1. Jenkins Server from Dockerfile:
 
 I have used Red Hat 8 as my base OS and made a separate directory for this project
 ` mkdir /task2`
@@ -38,11 +38,8 @@ It will build the image for Jenkins from the Dockerfile in the current directory
 
 Now we can check the Jenkins image by ` docker images | grep jenkins` 
 Then we can use this image to launch our Jenkins server :
-```
-docker run  -it --privileged
--v /:/host -p 1234:8080 
---name jkserver jenkins:v1
-```
+`docker run  -it  --privileged  -v /:/host  -p 1234:8080  --name  jkserver  jenkins:v1`
+
 `--privileged` is used to give special access to run docker commands in host OS through jenkins server.
 
 `-v /:/host` mounting is done for this reason only.
@@ -54,4 +51,18 @@ For first time Jenkins will ask an Initial Admin Password which we can find in t
 
 Now we will do the required settings and install suggested plugins in Jenkins.
 
-## Jobs in Jenkins
+## 2. Jobs in Jenkins
+Now we will start with our Jobs in Jenkins :
+
+  * Job1 :
+  Whenever Developer pushes something new in Github, Job1 coppies the code from Github to a directory inside the Jenkins server  container
+  ![a]()
+  ![b]()
+  ![c]()
+  
+  * Job2 :
+  Successful build of Job1 will trigger Job2 and it will launch the recpective container for the code of the developer.
+  Here I have taken example of webpages so I have used apache webserver.
+  
+  ![d]()
+  ![e]()
