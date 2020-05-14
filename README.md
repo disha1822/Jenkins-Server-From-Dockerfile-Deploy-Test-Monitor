@@ -56,20 +56,34 @@ Now we will start with our Jobs in Jenkins :
 
   * **Job1 :**
  
- Whenever Developer pushes something new in Github, Job1 coppies the code from Github to a directory inside the Jenkins server  container
-  ![a](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_1.png?raw=true)
-  ![b](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_2.png?raw=true)
-  ![c](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_3.png?raw=true)
+    Whenever Developer pushes something new in Github, Job1 coppies the code from Github to a directory inside the Jenkins server       container
+     ![a](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_1.png?raw=true)
+     ![b](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_2.png?raw=true)
+     ![c](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_3.png?raw=true)
   
   * **Job2 :**
   
-  Successful build of Job1 will trigger Job2 and it will launch the recpective container for the code of the developer.
-  Here I have taken example of webpages so I have used apache webserver.
+     Successful build of Job1 will trigger Job2 and it will launch the recpective container for the code of the developer.
+     Here I have taken example of webpages so I have used apache webserver.
   
-  ![d](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_1.png?raw=true)
-  ![e](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_2.png?raw=true)
+     ![d](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_1.png?raw=true)
+     ![e](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_2.png?raw=true)
   
   * **Job3 :**
+     After successful build of Job2 will trigger Job3 and it tests if the deployed container is working or not.It will be successfully built if the deployed container fails and then trigger Job4 for giving notification to the developer.
+     
+     ![f](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_1.png?raw=true)
+     ![g](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_2.png?raw=true)
+     
+  * **Job4 :**
+     It sends email notification to the developer for unsuccessful build, so that developer can correct the code.
+     
+     ![h](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job4_1.png?raw=true)
+     ![i](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job4_2.png?raw=true)
+     
+     For this to send email successfully we need to do the following configurations in Jenkins:
+     **Manage Jenkins -> Configure System -> E-mail Notification**
+     ![j]()
   
   
   
