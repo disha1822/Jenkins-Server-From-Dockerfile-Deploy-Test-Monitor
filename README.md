@@ -70,20 +70,36 @@ Now we will start with our Jobs in Jenkins :
      ![e](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_2.png?raw=true)
   
   * **Job3 :**
+  
      After successful build of Job2 will trigger Job3 and it tests if the deployed container is working or not.It will be successfully built if the deployed container fails and then trigger Job4 for giving notification to the developer.
      
      ![f](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_1.png?raw=true)
      ![g](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_2.png?raw=true)
      
   * **Job4 :**
+  
      It sends email notification to the developer for unsuccessful build, so that developer can correct the code.
      
      ![h](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job4_1.png?raw=true)
      ![i](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job4_2.png?raw=true)
      
      For this to send email successfully we need to do the following configurations in Jenkins:
+     
      **Manage Jenkins -> Configure System -> E-mail Notification**
-     ![j]()
+     ![j](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/config.png?raw=true)
+     
+     For successfully sent E-mail developer will get e-mail like this :
+     
+     ![mail](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/notification.png?raw=true)
   
+  * **Job5 :**
   
-  
+     It will check every minute if the deployed container is up or not. If by any case the container is shut down it will relaunch it.
+     
+     ![k](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job5_1.png?raw=true)
+     ![l](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job5_2.png?raw=true)
+     
+     
+## 3. Pipeline looks like :
+
+![m](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/pipeline.png?raw=true)
