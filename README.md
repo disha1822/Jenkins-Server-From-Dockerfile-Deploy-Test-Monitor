@@ -26,16 +26,22 @@ Here we have integrated :
 
 ## 1. Jenkins Server from Dockerfile:
 
+#### Creating Dockerfile :
+
 I have used Red Hat 8 as my base OS and made a separate directory for this project
 ` mkdir /task2`
 inside it created one Dockerfile for Jenkins server ` vim Dockerfile` :
 ![dockerfile](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/dockerfile.png?raw=true)
+
+#### Build Image :
 
 Then to build the **docker image** from it run the command `docker build -t jenkins:v1 .`. 
 It will build the image for Jenkins from the Dockerfile in the current directory and after an successful build we will get outout like this:
 
 ![build](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/build.png?raw=true)
 
+#### Launching Jenkins Server:
+ 
 Now we can check the Jenkins image by ` docker images | grep jenkins` 
 Then we can use this image to launch our Jenkins server :
 `docker run  -it  --privileged  -v /:/host  -p 1234:8080  --name  jkserver  jenkins:v1`
