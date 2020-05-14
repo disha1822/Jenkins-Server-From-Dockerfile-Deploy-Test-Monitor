@@ -54,14 +54,14 @@ Now we will do the required settings and install suggested plugins in Jenkins.
 ## 2. Jobs in Jenkins
 Now we will start with our Jobs in Jenkins :
 
-  * **Job1 :**
+  * **Job1(Copy Github Code) :**
  
     Whenever Developer pushes something new in Github, Job1 coppies the code from Github to a directory inside the Jenkins server       container
      ![a](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_1.png?raw=true)
      ![b](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_2.png?raw=true)
      ![c](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job1_3.png?raw=true)
   
-  * **Job2 :**
+  * **Job2(Deploy Container) :**
   
      Successful build of Job1 will trigger Job2 and it will launch the recpective container for the code of the developer.
      Here I have taken example of webpages so I have used apache webserver.
@@ -69,14 +69,14 @@ Now we will start with our Jobs in Jenkins :
      ![d](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_1.png?raw=true)
      ![e](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job2_2.png?raw=true)
   
-  * **Job3 :**
+  * **Job3(Testing Container) :**
   
      After successful build of Job2 will trigger Job3 and it tests if the deployed container is working or not.It will be successfully built if the deployed container fails and then trigger Job4 for giving notification to the developer.
      
      ![f](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_1.png?raw=true)
      ![g](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/job3_2.png?raw=true)
      
-  * **Job4 :**
+  * **Job4(Sending Notification) :**
   
      It sends email notification to the developer for unsuccessful build, so that developer can correct the code.
      
@@ -88,11 +88,20 @@ Now we will start with our Jobs in Jenkins :
      **Manage Jenkins -> Configure System -> E-mail Notification**
      ![j](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/config.png?raw=true)
      
+     You can still get error sending e-mail. In that case :
+     
+     Open this file **/etc/sysconfig/jenkins** and change a line of **JENKINS_JAVA_OPTIONS** to this -
+     
+     `JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Dmail.smtp.starttls.enable=true -Dmail.smtp.ssl.protocols=TLSv1.2"`
+     
+     After this restart your jenkins service
+     
+     
      For successfully sent E-mail developer will get e-mail like this :
      
-     ![mail](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/notification.png?raw=true)
+     ![mail](https://github.com/disha1822/Jenkins-Server-From-Dockerfile-Deploy-Test-Monitor/blob/master/notification.jpg?raw=true)
   
-  * **Job5 :**
+  * **Job5(Monitoring Container) :**
   
      It will check every minute if the deployed container is up or not. If by any case the container is shut down it will relaunch it.
      
