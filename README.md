@@ -38,7 +38,8 @@ It will build the image for Jenkins from the Dockerfile in the current directory
 
 Now we can check the Jenkins image by ` docker images | grep jenkins` 
 Then we can use this image to launch our Jenkins server :
-``` docker run  -it --privileged
+```
+docker run  -it --privileged
 -v /:/host -p 1234:8080 
 --name jkserver jenkins:v1
 ```
