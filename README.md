@@ -13,3 +13,10 @@ This task has the following series of things to be done :
 * 6.	Job3 : Test your app if it  is working or not.
 * 7.	Job4 : if app is not working , then send email to developer with error messages.
 * 8.	Create One extra job job5 for monitor : If container where app is running. fails due to any reson then this job should automatically       start the container again.
+
+# Software Required :
+Here we have integrated :
+* Jenkins 
+* Git
+* Docker
+![integrate](https://i2.wp.com/www.techrunnr.com/wp-content/uploads/2019/01/gitdockerjenkins.png?fit=248%2C203&ssl=1)
