@@ -21,3 +21,10 @@ Here we have integrated :
 * Docker
 
 ![integrate](https://i2.wp.com/www.techrunnr.com/wp-content/uploads/2019/01/gitdockerjenkins.png?fit=248%2C203&ssl=1)
+
+# Project Description :
+
+I have used Red Hat 8 as my base OS and made a separate directory for this project
+` mkdir /task2`
+inside it created one Dockerfile for Jenkins server ` vim Dockerfile` :
+![dockerfile]()
